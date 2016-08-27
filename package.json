@@ -1,6 +1,6 @@
 {
   "name": "language-transition",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "Brandon Catcho <bcatcho@gmail.com>",
   "description": "Syntax highlighting for transition state machine language",
   "engines": {
