@@ -1,0 +1,11 @@
+{
+  "name": "language-transition",
+  "version": "0.1.0",
+  "author": "Brandon Catcho <bcatcho@gmail.com>",
+  "description": "Syntax highlighting for transition state machine language",
+  "engines": {
+    "atom": "*"
+  },
+  "repository": "https://github.com/bcatcho/transition-grammar",
+  "license": "MIT"
+}

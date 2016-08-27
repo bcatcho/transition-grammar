@@ -1,0 +1,126 @@
+'scopeName': 'source.transition'
+'name': 'transition'
+'fileTypes': ['tx']
+'patterns': [
+    {
+      'comment': 'comments'
+      'match': '(#.*)'
+      'name': 'comment.block.documentation.transition'
+    },
+  {
+    'captures':
+      '1':
+        'name': 'keyword.control.transition'
+      '3':
+        'name': 'entity.name.type.class.transition'
+    'comment': 'everything being a reserved word, not a value and needing a \'end\' is a..'
+    'match': '(?<!\\.)(@(state|machine))\\b\\s*(\'[^\']*\'|\\w*)'
+  },
+  {
+    'comment': 'control characters'
+    'match': '\\b(\\\?)|\\b(yield|loop)\\b'
+    'name': 'keyword.control.transition'
+  },
+  {
+    'comment': 'composite nodes'
+    'match': '(?<!\\.)(@enter|@exit|@on|@tick|@run)\\b'
+    'name': 'support.function.kernel.transition'
+  },
+  {
+    'include': '#stringliteral'
+  },
+  {
+    'include': '#param'
+  },
+    {
+      'include': '#transitionparam'
+    },
+    {
+      'include': '#message'
+    },
+
+  {
+    'include': '#transition'
+  }
+]
+'repository':
+  'message':
+    'begin':'(\'\\w+\')\\s*(:)\\s*'
+    'beginCaptures':
+      '1':
+        'name': 'string.quoted.single.transition'
+      '2':
+        'name': 'keyword.control.transition'
+    'end': '(?=-\\>)'
+    'patterns': [
+      {
+        'include': '#param'
+      },
+      {
+        'include' : '#transition'
+      }
+    ]
+  'messageNoParam':
+    'begin':'(\'\\w+\')\\s*(:)\\s*'
+    'beginCaptures':
+      '1':
+        'name': 'string.quoted.single.transition'
+      '2':
+        'name': 'keyword.control.transition'
+    'end': '(?=-\\>)'
+    'patterns': [
+      {
+        'include' : '#transition'
+      }
+    ]
+  'transition':
+    'match': '(-\\>)\\s*(\\w+)(\\s*(\\||,)\\s*(\\w+))*'
+    'captures':
+      '1':
+        'name': 'keyword.control.transition'
+      '2':
+        'name': 'constant.language.boolean.transition'
+      '4':
+        'name': 'keyword.control.transition'
+      '5':
+        'name': 'constant.language.boolean.transition'
+  'transitionparam':
+    'begin': '(?<=\w|\')\\s*(-\\>)'
+    'beginCaptures':
+      '1':
+        'name': 'keyword.control.transition'
+    'end' : '\\n'
+    'patterns': [
+      {
+        'captures':
+          '1':
+            'name': 'keyword.control.transition'
+          '2':
+            'name': 'constant.language.boolean.transition'
+        'comment': 'named transitions'
+        'match': '\\s*\\w+\\s*(:)\\s*(\'\\w+\')'
+      }
+    ]
+  'param':
+    'captures':
+      '1':
+        'name': 'keyword.control.transition'
+    'comment': 'named transitions'
+    'match': '(:)'
+  'stringliteral':
+    'begin': '\''
+    'beginCaptures':
+      '0':
+        'name': 'punctuation.definition.string.begin.transition'
+    'comment': "string literal with '' delimitor"
+    'end': '\''
+    'endCaptures':
+      '0':
+        'name': 'punctuation.definition.string.end.transition'
+    'name': 'string.quoted.single.transition'
+    'patterns': [
+      {
+        'match': '\\\\\'|\\\\\\\\'
+        'name': 'constant.character.escape.transition'
+      }
+    ]
