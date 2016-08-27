@@ -1,6 +1,6 @@
 {
   "name": "transition-grammar",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "author": "Brandon Catcho <bcatcho@gmail.com>",
   "description": "Syntax highlighting for transition state machine language",
   "engines": {
